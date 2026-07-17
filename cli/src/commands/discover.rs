@@ -6,7 +6,7 @@
 
 //! # Discovery Command Implementation
 //!
-//! Implements the logic for `zond d`.
+//! Implements the logic for `zond discover`.
 //!
 //! This module wraps the core scanning functionality with the necessary terminal UI.
 //! Since the core `scanner` module is silent and purely functional, this module is responsible
@@ -24,14 +24,14 @@ use std::time::Instant;
 
 use colored::*;
 use tracing::info_span;
-
+use zond_core::config::ZondConfig;
 use crate::terminal::colors;
 use crate::terminal::print::Print;
 use crate::terminal::spinner::SpinnerGuard;
 
 use zond_core::models::ip::set::IpSet;
 use zond_core::parse;
-use zond_engine::{config::ZondConfig, models::host::Host};
+use zond_core::models::host::Host;
 use zond_engine::scanner;
 
 /// Runs the active discovery scan on the provided targets.
@@ -56,10 +56,10 @@ pub async fn discover(targets: &[String], cfg: &ZondConfig) -> anyhow::Result<()
 
     let _guard: SpinnerGuard = run_spinner();
 
-    let ips: IpSet = parse::to_ipset(targets)?;
-    let start_time: Instant = Instant::now();
+    let ip_set = parse::to_ipset(targets)?;
+    let start_time = Instant::now();
 
-    let mut hosts: Vec<Host> = scanner::discover(ips, cfg).await?;
+    let mut hosts: Vec<Host> = scanner::discover(ip_set, cfg).await?;
 
     if hosts.is_empty() {
         Print::no_results();
