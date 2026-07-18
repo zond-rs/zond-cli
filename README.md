@@ -1,7 +1,7 @@
 # Zond
 
-![Build Status](https://github.com/hollowpointer/zond/actions/workflows/build.yml/badge.svg)
-![Lint Status](https://github.com/hollowpointer/zond/actions/workflows/lint.yml/badge.svg)
+![Build Status](https://github.com/zond-rs/zond-cli/actions/workflows/build.yml/badge.svg)
+![Lint Status](https://github.com/zond-rs/zond-cli/actions/workflows/lint.yml/badge.svg)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 ![Rust Version](https://img.shields.io/badge/rustc-1.93+-blue.svg)
 
@@ -31,8 +31,8 @@ For other Linux distributions and macOS, you must build the tool from source. En
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/hollowpointer/zond
-cd zond
+git clone https://github.com/zond-rs/zond-cli
+cd zond-cli
 
 ```
 
