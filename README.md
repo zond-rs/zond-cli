@@ -5,7 +5,7 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 ![Rust Version](https://img.shields.io/badge/rustc-1.93+-blue.svg)
 
-**Zond** is a lightweight, fast network mapping and discovery tool designed for Linux and macOS.
+**Zond** is the official Command-Line Interface (CLI) for the [Zond Engine](https://github.com/zond-rs/zond-engine), providing a lightweight, fast network mapping and discovery tool designed for Linux and macOS.
 
 <img width="1920" height="1080" alt="github" src="https://github.com/user-attachments/assets/60bd1b8d-a9c8-4fea-9339-85e31ba97504" />
 
