@@ -129,12 +129,12 @@ fn rtt_to_string(host: &Host) -> String {
 fn print_services(ports: &[Port]) {
     let mut open_c = 0;
     let mut filtered_c = 0;
-    let mut closed_c = 0;
+    let mut _closed_c = 0;
     for p in ports {
         match p.state() {
             PortState::Open => open_c += 1,
             PortState::Filtered | PortState::OpenFiltered => filtered_c += 1,
-            PortState::Closed => closed_c += 1,
+            PortState::Closed => _closed_c += 1,
             _ => (),
         }
     }
@@ -175,11 +175,11 @@ fn print_services(ports: &[Port]) {
         let port_spec_padded = format!("{:width$}", port_spec, width = 9);
 
         let (state_str, state_color) = match p.state() {
-            PortState::Open => ("OPEN   ", colored::Color::Green),
-            PortState::Filtered => ("FILTERED", colored::Color::Cyan),
-            PortState::OpenFiltered => ("OPEN|FIL", colored::Color::Yellow),
-            PortState::Closed => ("CLOSED ", colored::Color::Red),
-            _ => ("UNKNOWN", colored::Color::White),
+            PortState::Open => ("OPEN   ", Color::Green),
+            PortState::Filtered => ("FILTERED", Color::Cyan),
+            PortState::OpenFiltered => ("OPEN|FIL", Color::Yellow),
+            PortState::Closed => ("CLOSED ", Color::Red),
+            _ => ("UNKNOWN", Color::White),
         };
 
         let state_fmt = format!("[ {} ]", state_str.color(state_color));

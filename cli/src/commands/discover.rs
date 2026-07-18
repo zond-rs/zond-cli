@@ -29,7 +29,6 @@ use crate::terminal::colors;
 use crate::terminal::print::Print;
 use crate::terminal::spinner::SpinnerGuard;
 
-use zond_core::models::ip::set::IpSet;
 use zond_core::parse;
 use zond_core::models::host::Host;
 use zond_engine::scanner;
@@ -81,7 +80,7 @@ fn run_spinner() -> SpinnerGuard {
     let _enter = span.enter();
 
     SpinnerGuard::with_status(span.clone(), || {
-        let count = zond_engine::scanner::get_host_count();
+        let count = scanner::get_host_count();
         let count_str = count.to_string().green().bold();
         let label = if count == 1 { "host" } else { "hosts" };
         format!("Identified {} {} so far...", count_str, label)
