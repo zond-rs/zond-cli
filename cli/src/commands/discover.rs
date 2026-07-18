@@ -55,7 +55,7 @@ pub async fn discover(targets: &[String], cfg: &ZondConfig) -> anyhow::Result<()
 
     let _guard: SpinnerGuard = run_spinner();
 
-    let ip_set = parse::to_ipset(targets)?;
+    let ip_set = parse::to_ipset(targets, Some(zond_system::interface::resolve::resolve))?;
     let start_time = Instant::now();
 
     let mut hosts: Vec<Host> = scanner::discover(ip_set, cfg).await?;

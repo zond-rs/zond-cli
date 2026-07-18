@@ -24,7 +24,7 @@ pub async fn scan(
 
     let _guard: SpinnerGuard = run_spinner();
 
-    let target_map = parse::to_target_map(targets, global_ports)?;
+    let target_map = parse::to_target_map(targets, global_ports, Some(zond_system::interface::resolve::resolve))?;
     let start_time = Instant::now();
 
     let mut hosts = zond_engine::scanner::scan(target_map, cfg).await?;
