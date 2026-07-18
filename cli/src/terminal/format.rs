@@ -7,9 +7,9 @@
 use crate::terminal::colors;
 use colored::*;
 use std::net::{IpAddr, Ipv6Addr};
-use zond_core::models::host::Host;
-use zond_core::models::ip;
-use zond_core::redact;
+use zond_engine::core::models::host::Host;
+use zond_engine::core::models::ip;
+use zond_engine::core::redact;
 
 // Logic moved from network/ip.rs
 pub fn ipv6_to_type_str(ipv6_addr: &Ipv6Addr) -> &'static str {
@@ -84,7 +84,7 @@ pub fn hostname_to_detail(
     result
 }
 
-pub fn mac_to_detail(mac_opt: Option<zond_core::models::mac::MacAddr>, redact: bool) -> Option<(String, ColoredString)> {
+pub fn mac_to_detail(mac_opt: Option<zond_engine::core::models::mac::MacAddr>, redact: bool) -> Option<(String, ColoredString)> {
     let mut result: Option<(String, ColoredString)> = None;
 
     if let Some(mac) = mac_opt {

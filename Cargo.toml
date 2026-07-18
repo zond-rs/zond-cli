@@ -24,8 +24,4 @@ crossterm = "0.29.0"
 rayon = "1.11.0"
 tracing = "0.1.44"
 
-zond-engine = { git = "https://github.com/zond-rs/zond-engine.git", branch = "main" }
-zond-core = { git = "https://github.com/zond-rs/zond-engine.git", branch = "main" }
-zond-protocols = { git = "https://github.com/zond-rs/zond-engine.git", branch = "main" }
-zond-plugins = { git = "https://github.com/zond-rs/zond-engine.git", branch = "main" }
-zond-system = { git = "https://github.com/zond-rs/zond-engine.git", branch = "main" }
+zond-engine = "0.4.0"

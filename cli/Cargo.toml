@@ -6,8 +6,6 @@ edition.workspace = true
 
 [dependencies]
 zond-engine = { workspace = true }
-zond-core = { workspace = true }
-zond-system = { workspace = true }
 clap = { workspace = true }
 anyhow = { workspace = true }
 console = { workspace = true }

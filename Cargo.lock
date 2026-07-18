@@ -2379,83 +2379,36 @@ dependencies = [
  "tracing-indicatif",
  "tracing-subscriber",
  "unicode-width",
- "zond-core",
  "zond-engine",
- "zond-system",
-]
-
-[[package]]
-name = "zond-core"
-version = "0.1.4"
-dependencies = [
- "anyhow",
- "async-trait",
- "bincode",
- "crossterm",
- "mac_oui",
- "rand 0.9.2",
- "rayon",
- "serde",
- "thiserror",
- "tracing",
- "windows-sys 0.61.2",
 ]
 
 [[package]]
 name = "zond-engine"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "hickory-resolver",
- "is-root",
- "pnet",
- "rand 0.10.2",
- "sysinfo",
- "tokio",
- "tracing",
- "windows-sys 0.61.2",
- "zond-core",
- "zond-plugins",
- "zond-protocols",
- "zond-system",
-]
-
-[[package]]
-name = "zond-plugins"
-version = "0.1.0"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f7be3f4a36671b53cbd0e1979124288a7a699659fbc0b5f34316bac90614c1a"
 dependencies = [
  "anyhow",
  "async-trait",
  "bincode",
- "regex",
- "serde",
- "tokio",
- "toml",
- "zond-core",
- "zond-protocols",
-]
-
-[[package]]
-name = "zond-protocols"
-version = "0.1.2"
-dependencies = [
- "anyhow",
+ "clap",
+ "colored",
+ "console",
+ "crossterm",
  "dns-parser",
+ "hickory-resolver",
+ "indicatif",
+ "is-root",
+ "mac_oui",
  "pnet",
  "rand 0.10.2",
- "thiserror",
- "tracing",
- "zond-core",
-]
-
-[[package]]
-name = "zond-system"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "pnet",
  "rayon",
+ "regex",
+ "serde",
+ "sysinfo",
+ "thiserror",
+ "tokio",
+ "toml",
  "tracing",
- "zond-core",
+ "windows-sys 0.61.2",
 ]

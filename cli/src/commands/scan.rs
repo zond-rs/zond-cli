@@ -8,9 +8,9 @@ use std::time::Instant;
 
 use colored::*;
 use tracing::info_span;
-use zond_core::config::ZondConfig;
-use zond_core::models::port::PortSet;
-use zond_core::parse;
+use zond_engine::core::config::ZondConfig;
+use zond_engine::core::models::port::PortSet;
+use zond_engine::core::parse;
 use crate::terminal::colors;
 use crate::terminal::print::Print;
 use crate::terminal::spinner::SpinnerGuard;
@@ -24,7 +24,7 @@ pub async fn scan(
 
     let _guard: SpinnerGuard = run_spinner();
 
-    let target_map = parse::to_target_map(targets, global_ports, Some(zond_system::interface::resolve::resolve))?;
+    let target_map = parse::to_target_map(targets, global_ports, Some(zond_engine::system::interface::resolve::resolve))?;
     let start_time = Instant::now();
 
     let mut hosts = zond_engine::scanner::scan(target_map, cfg).await?;
