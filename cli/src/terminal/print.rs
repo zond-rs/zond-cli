@@ -86,7 +86,9 @@ impl Print {
             return;
         }
 
-        let text_content = format!("⟦ ZOND v{} ⟧ ", env!("CARGO_PKG_VERSION"));
+        let version = env!("CARGO_PKG_VERSION");
+        let display_version = version.split('.').take(2).collect::<Vec<_>>().join(".");
+        let text_content = format!("⟦ ZOND {} ⟧ ", display_version);
         let output = format_centered(&text_content.bright_green().bold(), "═", TOTAL_WIDTH);
 
         zprint!("{}", output);

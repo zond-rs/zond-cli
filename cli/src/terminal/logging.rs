@@ -46,7 +46,9 @@ where
             Level::TRACE => ("[ ]", |s| s.dimmed()),
             Level::DEBUG => ("[?]", |s| s.blue()),
             Level::INFO => match meta_visitor.status.as_deref() {
-                Some("info") => ("[»]", |s| s.cyan().bold()),
+                Some("info") => ("[i]", |s| s.white().bold()),
+                Some("outgoing") => ("[»]", |s| s.magenta().bold()),
+                Some("incoming") => ("[«]", |s| s.cyan().bold()),
                 _ => ("[+]", |s| s.green().bold()),
             },
             Level::WARN => ("[*]", |s| s.yellow().bold()),

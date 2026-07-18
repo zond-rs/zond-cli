@@ -5,7 +5,7 @@
 // https://mozilla.org/MPL/2.0/.
 
 use rand::seq::SliceRandom;
-use rand::{Rng, rng};
+use rand::{RngExt, rng};
 
 /// Internal scanner-specific operational guidance.
 const SCANNER_TIPS: &[&str] = &[
