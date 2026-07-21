@@ -30,7 +30,12 @@ pub fn start_listener(handle: ScanHandle) -> InputGuard {
 
     std::thread::spawn(move || {
         while running_clone.load(Ordering::Relaxed) {
-            if let Some(Event::Key(KeyEvent { code, modifiers, .. })) = event::poll(std::time::Duration::from_millis(100)).ok().and_then(|ready| if ready { event::read().ok() } else { None }) {
+            if let Some(Event::Key(KeyEvent {
+                code, modifiers, ..
+            })) = event::poll(std::time::Duration::from_millis(100))
+                .ok()
+                .and_then(|ready| if ready { event::read().ok() } else { None })
+            {
                 match code {
                     KeyCode::Char('q') | KeyCode::Char('Q') => {
                         handle.abort();
